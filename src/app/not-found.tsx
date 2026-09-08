@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { BRAND_FULL_NAME } from '@/lib/brand';
 import { ArrowLeft, Compass } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
@@ -17,7 +18,7 @@ export default function NotFound() {
         <Button asChild className="mt-7">
           <Link href="/">
             <ArrowLeft className="h-4 w-4" />
-            返回 QuantPilot
+            返回 {BRAND_FULL_NAME}
           </Link>
         </Button>
       </section>

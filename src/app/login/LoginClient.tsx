@@ -1,10 +1,11 @@
 'use client';
 
-import { ArrowRight, BarChart3, LockKeyhole, ShieldCheck, Sparkles } from 'lucide-react';
+import { ArrowRight, LockKeyhole, ShieldCheck, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import { FormEvent, useState } from 'react';
 
-import loginHero from '@/assets/login-quant-anime-researcher-v2.webp';
+import loginHero from '@/assets/tidescope-coast-v1.png';
+import { BRAND_FULL_NAME } from '@/lib/brand';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -63,22 +64,20 @@ export default function LoginClient({
         <section className="relative min-h-[260px] overflow-hidden border-b border-border/70 bg-muted lg:min-h-[720px] lg:border-b-0 lg:border-r">
           <Image
             src={loginHero}
-            alt="动漫风格的 QuantPilot 量化研究员正在分析数据"
+            alt="美式游戏概念插画风格的宁静海岸，沙滩、棕榈与碧蓝大海"
             fill
             priority
             sizes="(min-width: 1024px) 55vw, 100vw"
-            className="object-cover object-[50%_42%] lg:object-[50%_44%]"
+            className="object-cover object-[70%_50%]"
           />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/30 via-transparent to-white/10" />
 
-          <div className="absolute left-5 top-5 flex items-center gap-2.5 rounded-2xl border border-white/70 bg-white/80 px-3 py-2 text-sm font-bold tracking-tight text-slate-900 shadow-sm backdrop-blur-md sm:left-7 sm:top-7 sm:px-4">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm">
-              <BarChart3 className="h-5 w-5" />
-            </span>
-            QuantPilot
+          <div className="absolute left-5 top-5 flex items-center gap-2.5 rounded-2xl border border-white/70 bg-card/90 px-3 py-2 text-sm font-bold tracking-tight text-foreground shadow-sm backdrop-blur-md sm:left-7 sm:top-7 sm:px-4">
+            <Image src="/tidescope-mark.svg" alt="" width={36} height={36} className="rounded-xl" />
+            {BRAND_FULL_NAME}
           </div>
 
-          <div className="absolute bottom-7 left-7 right-7 hidden overflow-hidden rounded-[1.75rem] border border-white/80 bg-white/88 text-slate-950 shadow-[0_20px_52px_-28px_rgba(15,23,42,0.34)] backdrop-blur-xl lg:block">
+          <div className="absolute bottom-7 left-7 right-7 hidden overflow-hidden rounded-[1.75rem] border border-border/70 bg-card/95 text-foreground shadow-[0_20px_52px_-28px_rgba(15,23,42,0.34)] backdrop-blur-xl lg:block">
             <div className="h-1 bg-gradient-to-r from-primary via-primary/45 to-transparent" />
             <div className="p-6">
               <div className="flex items-center gap-3">
@@ -90,9 +89,9 @@ export default function LoginClient({
                 <span className="text-xs font-medium text-slate-500">数据真实 · 过程可追溯</span>
               </div>
               <h1 className="mt-3 text-[1.7rem] font-bold leading-[1.2] tracking-[-0.035em]">
-                让数据说话，让结论经得起验证。
+                在潮汐之间，<br />看见清晰的研究方向。
               </h1>
-              <p className="mt-2 text-sm leading-6 text-slate-600">
+              <p className="mt-2 text-sm leading-6 text-muted-foreground">
                 专业 Skills 连接数据能力，Agent 协同完成分析与验证。
               </p>
             </div>

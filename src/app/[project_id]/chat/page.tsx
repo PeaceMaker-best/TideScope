@@ -1,4 +1,5 @@
 "use client";
+import { BRAND_ENGLISH_NAME } from '@/lib/brand';
 import { useEffect, useState, useRef, useCallback, useMemo, type CSSProperties } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { MotionDiv } from '@/lib/motion';
@@ -1691,7 +1692,7 @@ const persistProjectPreferences = useCallback(
                   void runAct(message, images, mode);
                 }}
                 disabled={false}
-                placeholder={mode === 'act' ? "向 QuantPilot 描述你的量化需求..." : "和 QuantPilot 讨论项目细节..."}
+                placeholder={mode === 'act' ? `向 ${BRAND_ENGLISH_NAME} 描述你的量化需求...` : `和 ${BRAND_ENGLISH_NAME} 讨论项目细节...`}
                 mode={mode}
                 onModeChange={setMode}
                 projectId={projectId}
@@ -2049,7 +2050,7 @@ const persistProjectPreferences = useCallback(
                               onClick={!isRunning && !isStartingPreview ? () => start({ requireValidation: true }) : undefined}
                               className={`block w-40 h-40 mx-auto mb-6 relative ${!isRunning && !isStartingPreview ? 'cursor-pointer group' : ''}`}
                             >
-                              {/* QuantPilot 启动动画图标 */}
+                              {/* TideScope 启动动画图标 */}
                               <MotionDiv
                                 className="w-full h-full"
                                 animate={isStartingPreview ? { rotate: 360 } : {}}
@@ -2059,8 +2060,8 @@ const persistProjectPreferences = useCallback(
                                   className="w-full h-full"
                                   style={{
                                     backgroundColor: activeBrandColor,
-                                    mask: 'url(/Symbol_white.png) no-repeat center/contain',
-                                    WebkitMask: 'url(/Symbol_white.png) no-repeat center/contain',
+                                    mask: 'url(/tidescope-symbol.svg) no-repeat center/contain',
+                                    WebkitMask: 'url(/tidescope-symbol.svg) no-repeat center/contain',
                                     opacity: 0.9
                                   }}
                                 />

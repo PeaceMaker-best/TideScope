@@ -3,7 +3,7 @@
 import { useReducedMotion } from 'framer-motion';
 import Image from 'next/image';
 
-import dashboardGenerationAnime from '@/assets/dashboard-generation-anime-v1.webp';
+import coastalLandscape from '@/assets/tidescope-coast-v1.png';
 import { MotionDiv } from '@/lib/motion';
 
 export type DashboardGenerationWaitingMode = 'generating' | 'preview';
@@ -23,7 +23,7 @@ const WAITING_COPY: Record<
   { eyebrow: string; title: string; helper: string }
 > = {
   generating: {
-    eyebrow: '量化研究员工作中',
+    eyebrow: '潮汐研究进行中',
     title: '正在为你生成量化看板',
     helper: '系统会持续取数、编排图表并完成自动验证，完成后自动展示。',
   },
@@ -76,10 +76,10 @@ function DashboardGenerationProgress({
   const progressWidth = `${(activeStage.index / (WAITING_STAGES.length - 1)) * 80}%`;
 
   return (
-    <div className="mt-5 rounded-2xl border border-white/80 bg-white/55 px-3.5 py-3 shadow-[0_12px_36px_-28px_rgba(79,70,229,0.55)] backdrop-blur-sm sm:px-5">
+    <div className="mt-5 rounded-2xl border border-border bg-card/90 px-3.5 py-3 shadow-sm backdrop-blur-sm sm:px-5">
       <div className="mb-3 flex items-center justify-between gap-3 text-[11px] font-medium">
-        <span className="text-slate-500">生成进度</span>
-        <span className="rounded-full bg-white/80 px-2.5 py-1 font-semibold text-slate-700 shadow-sm">
+        <span className="text-muted-foreground">生成进度</span>
+        <span className="rounded-full bg-muted px-2.5 py-1 font-semibold text-foreground shadow-sm">
           当前：{activeStage.label}
         </span>
       </div>
@@ -93,14 +93,14 @@ function DashboardGenerationProgress({
         aria-valuetext={`当前阶段：${activeStage.label}`}
         className="relative"
       >
-        <div className="absolute left-[10%] right-[10%] top-[7px] h-1 overflow-hidden rounded-full bg-slate-200/80">
+        <div className="absolute left-[10%] right-[10%] top-[7px] h-1 overflow-hidden rounded-full bg-muted">
           <MotionDiv
             className="relative h-full overflow-hidden rounded-full"
             initial={false}
             animate={{ width: progressWidth }}
             transition={{ duration: reduceMotion ? 0 : 0.55, ease: 'easeOut' }}
             style={{
-              background: `linear-gradient(90deg, ${accentColor}, #8b8cf8 58%, #d8a4f2)`,
+              background: `linear-gradient(90deg, ${accentColor}, #27a5ad 58%, #8bd5c6)`,
             }}
           >
             {!reduceMotion && activeStage.index > 0 ? (
@@ -146,10 +146,10 @@ function DashboardGenerationProgress({
                 <span
                   className={`mt-1.5 truncate text-[10px] font-medium sm:text-[11px] ${
                     active
-                      ? 'text-slate-800'
+                      ? 'text-foreground'
                       : completed
-                        ? 'text-slate-600'
-                        : 'text-slate-400'
+                        ? 'text-foreground/80'
+                        : 'text-muted-foreground'
                   }`}
                 >
                   {stage.label}
@@ -200,14 +200,14 @@ export function DashboardGenerationWaiting({
           animate={reduceMotion ? undefined : { y: [0, -4, 0] }}
           transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
         >
-          <div className="relative h-full overflow-hidden rounded-[21px] bg-[#f8f7ff]">
+          <div className="relative h-full overflow-hidden rounded-[21px] bg-muted">
             <MotionDiv
               className="absolute inset-0"
               animate={reduceMotion ? undefined : { scale: [1, 1.018, 1] }}
               transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
             >
               <Image
-                src={dashboardGenerationAnime}
+                src={coastalLandscape}
                 alt=""
                 fill
                 draggable={false}
@@ -245,10 +245,10 @@ export function DashboardGenerationWaiting({
       </div>
 
       <div className="mx-auto mt-5 max-w-[520px] px-1">
-        <h3 className="text-xl font-bold tracking-tight text-slate-900 sm:text-2xl">
+        <h3 className="text-xl font-bold tracking-tight text-foreground sm:text-2xl">
           {copy.title}
         </h3>
-        <div className="mt-2 flex min-h-6 items-center justify-center gap-2 text-sm font-medium text-slate-600">
+        <div className="mt-2 flex min-h-6 items-center justify-center gap-2 text-sm font-medium text-muted-foreground">
           <span>{message}</span>
           <span className="inline-flex items-center gap-1" aria-hidden="true">
             {[0, 1, 2].map((index) => (
@@ -268,7 +268,7 @@ export function DashboardGenerationWaiting({
           accentColor={accentColor}
           reduceMotion={reduceMotion}
         />
-        <p className="mt-3 text-xs leading-5 text-slate-500 sm:text-[13px]">
+        <p className="mt-3 text-xs leading-5 text-muted-foreground sm:text-[13px]">
           {copy.helper}
         </p>
       </div>

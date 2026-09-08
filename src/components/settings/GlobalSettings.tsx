@@ -287,7 +287,7 @@ export default function GlobalSettings({ isOpen, onClose, initialTab = "general"
                   onClick={() => setActiveTab(tab.id)}
                   className={`flex items-center gap-2 border-b-2 px-4 py-3 text-sm font-medium transition-all ${
                     activeTab === tab.id
-                      ? "border-[#DE7356] text-slate-900"
+                      ? "border-primary text-slate-900"
                       : "border-transparent text-slate-600 hover:border-slate-300 hover:text-slate-700"
                   }`}
                 >

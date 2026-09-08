@@ -433,7 +433,7 @@ function CreateTaskForm({
             type="submit"
             disabled={isSubmitDisabled}
             aria-describedby={submissionState.validationMessage ? validationMessageId : undefined}
-            className="h-11 min-h-11 shrink-0 gap-1.5 rounded-xl bg-gradient-to-r from-[#c94b38] to-[#a93425] px-3 text-xs font-semibold text-white shadow-[0_12px_28px_-14px_rgba(169,52,37,0.72)] hover:from-[#bd4938] hover:to-[#982f22]"
+            className="h-11 min-h-11 shrink-0 gap-1.5 rounded-xl bg-primary px-3 text-xs font-semibold text-primary-foreground shadow-sm hover:bg-primary/90"
             aria-label="提交任务"
           >
             {isCreating ? (

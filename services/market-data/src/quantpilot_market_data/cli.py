@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import asyncio
 import os
 from pathlib import Path
 
@@ -57,6 +58,11 @@ def load_market_environment(root: Path | None = None) -> None:
         os.environ.setdefault(key, value)
 
 
+def windows_selector_loop_factory() -> asyncio.AbstractEventLoop:
+    """Use the event loop supported by psycopg asynchronous connections."""
+    return asyncio.SelectorEventLoop()
+
+
 def main() -> None:
     load_market_environment()
     host = os.getenv("QUANTPILOT_MARKET_HOST", "127.0.0.1")
@@ -65,6 +71,11 @@ def main() -> None:
         "quantpilot_market_data.api:app",
         host=host,
         port=port,
+        loop=(
+            "quantpilot_market_data.cli:windows_selector_loop_factory"
+            if os.name == "nt"
+            else "auto"
+        ),
         reload=os.getenv("QUANTPILOT_MARKET_RELOAD", "0") == "1",
     )
 

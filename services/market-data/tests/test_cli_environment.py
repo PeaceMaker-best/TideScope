@@ -1,8 +1,31 @@
 from __future__ import annotations
 
+import asyncio
 import os
 
+from quantpilot_market_data import cli
 from quantpilot_market_data.cli import load_market_environment
+
+
+def test_selector_factory_is_compatible_with_async_postgres() -> None:
+    loop = cli.windows_selector_loop_factory()
+    try:
+        assert isinstance(loop, asyncio.SelectorEventLoop)
+    finally:
+        loop.close()
+
+
+def test_cli_selects_platform_appropriate_loop(monkeypatch) -> None:
+    calls = []
+    monkeypatch.setattr(cli, "load_market_environment", lambda: None)
+    monkeypatch.setattr(cli.uvicorn, "run", lambda *args, **kwargs: calls.append(kwargs))
+    cli.main()
+    expected = (
+        "quantpilot_market_data.cli:windows_selector_loop_factory"
+        if os.name == "nt"
+        else "auto"
+    )
+    assert calls[0]["loop"] == expected
 
 
 def test_market_environment_uses_allowlist_and_local_precedence(tmp_path, monkeypatch) -> None:

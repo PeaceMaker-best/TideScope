@@ -16,6 +16,13 @@ const PUBLIC_BRAND_ASSET_PATHS = new Set([
   '/manifest.webmanifest',
   '/quantpilot-mark.svg',
   '/QuantPilot_Icon.png',
+  '/tidescope-mark.svg',
+  '/tidescope-symbol.svg',
+  '/tidescope-16.png',
+  '/tidescope-32.png',
+  '/tidescope-180.png',
+  '/icons/tidescope-192.png',
+  '/icons/tidescope-512.png',
 ]);
 
 function isPublicBrandAssetPath(pathname: string): boolean {

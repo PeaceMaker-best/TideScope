@@ -1,4 +1,5 @@
 import { expect, test, type Page } from 'playwright/test';
+import { BRAND_ENGLISH_NAME } from '../../src/lib/brand';
 import type { QuantGenerationTerminalSnapshot } from '../../src/lib/quant/generation-terminal';
 
 async function openWorkspace(page: Page, accepted = true, activeCount = 0, turnMetrics?: unknown) {
@@ -159,7 +160,7 @@ test('does not dispatch queued follow-ups when active-request polling loses its 
       .getByRole('button', { name: '对话', exact: true })
       .click();
   await expect(page.getByRole('button', { name: '加入补充要求队列' })).toBeVisible();
-  await page.getByRole('textbox', { name: '向 QuantPilot 发送消息' }).fill('完成当前研究后再比较行业暴露');
+  await page.getByRole('textbox', { name: `向 ${BRAND_ENGLISH_NAME} 发送消息` }).fill('完成当前研究后再比较行业暴露');
   await page.getByRole('button', { name: '加入补充要求队列' }).click();
   const count = fixture.activityReads;
   fixture.disconnectActivity();

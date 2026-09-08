@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
+import { BRAND_ENGLISH_NAME } from '@/lib/brand';
 import { redirect } from 'next/navigation';
 
 import LoginClient from './LoginClient';
 import { getDevelopmentAdminDefaults, getProjectAuthConfig } from '@/lib/config/auth';
 
 export const metadata: Metadata = {
-  title: '登录 · QuantPilot',
+  title: `登录 · ${BRAND_ENGLISH_NAME}`,
 };
 
 export default async function LoginPage({

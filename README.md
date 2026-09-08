@@ -1,4 +1,14 @@
-# QuantPilot
+# 潮汐 TideScope
+
+金融研究与交互式看板工作台。以海蓝、暖沙和无人海岸为视觉主题，连接自然语言研究需求、真实数据、Agent 工具执行与证据验收。
+
+本项目基于 [QuantPilot](https://github.com/tiammomo/QuantPilot) 开源底座进行定制，保留上游许可与架构说明。本仓库的定制包括 TideScope 品牌、海岸主题、登录与生成等待界面，以及 Windows 行情服务事件循环兼容修复。配置变量、数据库与历史文档中的 QuantPilot 名称保留，以维持兼容性。
+
+![TideScope 原创海岸主题插画](src/assets/tidescope-coast-v1.png)
+
+界面与素材说明见 [海岸主题记录](docs/TIDESCOPE_THEME.md)。以下为项目架构与运行指南；模型密钥、数据库内容和本机环境文件不随仓库发布。
+
+## 项目架构
 
 QuantPilot 是建立在通用 Data Agent 与开源 [PI Agent](https://github.com/earendil-works/pi) 执行内核之上的金融量化应用。用户用自然语言提出研究问题，Finance Domain Pack 会组合证券解析、真实数据、Skills、工具、Mission 和可视化规则，生成可运行工作空间，并通过自动验证、视觉检查、产物契约和评测链路把结果收敛到“好看、可用、可追溯”。下一阶段聚焦“可信数据 → 可复现实验 → 持续研究 → 结果复盘”，具体交付与当前缺口见 [路线图](docs/ROADMAP.md)。
 

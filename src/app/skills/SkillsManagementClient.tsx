@@ -1,5 +1,7 @@
 "use client";
 
+import { BRAND_ENGLISH_NAME } from '@/lib/brand';
+
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { PointerEvent as ReactPointerEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -960,7 +962,7 @@ export default function SkillsManagementClient({ initialData }: { initialData: S
                   </div>
                   <h1 className="mt-3 text-2xl font-bold tracking-[-0.025em] text-foreground sm:text-3xl">Skills Market</h1>
                   <p className="mt-2 max-w-3xl text-sm leading-6 text-muted-foreground">
-                    浏览和维护 QuantPilot 的研究能力。每个 Skill 都提供适用边界、输入输出、验证规则与交付状态。
+                    浏览和维护 {BRAND_ENGLISH_NAME} 的研究能力。每个 Skill 都提供适用边界、输入输出、验证规则与交付状态。
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 sm:flex-row lg:justify-end">

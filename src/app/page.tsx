@@ -63,7 +63,8 @@ import {
   type QuantCapabilityId,
 } from "@/lib/domains/finance/capabilities";
 import { cn } from "@/lib/utils";
-import homeAnimeResearcher from "@/assets/home-anime-quant-researcher-v3.webp";
+import coastalLandscape from "@/assets/tidescope-coast-v1.png";
+import { BRAND_NAME, BRAND_ENGLISH_NAME } from "@/lib/brand";
 import {
   buildQuestionInstruction,
   questionOutputLabel,
@@ -688,14 +689,14 @@ export default function HomePage() {
       <header className="platform-header sticky top-0 z-40 flex h-16 shrink-0 items-center justify-between px-3 md:px-6">
         <div className="flex min-w-0 items-center gap-2.5">
           <Image
-            src="/quantpilot-mark.svg"
+            src="/tidescope-mark.svg"
             alt=""
             width={40}
             height={40}
             priority
-            className="h-10 w-10 shrink-0 rounded-xl shadow-[0_10px_22px_-12px_rgba(201,67,49,0.82)]"
+            className="h-10 w-10 shrink-0 rounded-xl shadow-sm"
           />
-          <span className="text-base font-bold tracking-tight sm:text-lg">QuantPilot</span>
+          <span className="flex flex-col leading-tight"><span className="text-base font-bold tracking-widest sm:text-lg">{BRAND_NAME}</span><span className="text-[9px] font-semibold tracking-[0.15em] text-muted-foreground">{BRAND_ENGLISH_NAME}</span></span>
 
           <nav className="ml-4 hidden items-center gap-1 lg:flex" aria-label="首页导航">
             <Button type="button" variant="ghost" size="sm" className="h-11 gap-2 rounded-none border-b-2 border-primary px-3 text-xs font-semibold text-foreground">
@@ -735,7 +736,7 @@ export default function HomePage() {
       </header>
 
       <main className="platform-content flex-1 scroll-pb-24 px-4 pb-[calc(6rem+env(safe-area-inset-bottom))] pt-4 md:px-6 md:pb-16 md:pt-5">
-        <div className="mx-auto w-full max-w-[116rem]">
+        <div className="mx-auto w-full max-w-[90rem]">
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -782,26 +783,31 @@ export default function HomePage() {
               initial={{ opacity: 0, y: 18 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.45, delay: 0.08, ease: "easeOut" }}
-              className="relative isolate overflow-hidden border-b border-border/55 py-6 sm:py-9"
+              className="relative isolate overflow-hidden rounded-[1.75rem] border border-border/75 bg-card shadow-[0_16px_56px_-40px_hsl(var(--shadow-color)/0.35)]"
             >
-              <div className="pointer-events-none absolute inset-0 -z-30 bg-[linear-gradient(145deg,hsl(var(--background)),hsl(var(--primary)/0.04)_52%,hsl(var(--background)))]" />
-              <div className="pointer-events-none absolute left-1/2 top-2 -z-20 h-64 w-[58rem] max-w-[94vw] -translate-x-1/2 rounded-full bg-primary/[0.075] blur-3xl" />
-              <div
-                aria-hidden="true"
-                className="pointer-events-none absolute -right-8 -top-8 -z-10 h-48 w-40 opacity-[0.13] mix-blend-multiply [mask-image:radial-gradient(ellipse_at_62%_42%,black_32%,transparent_76%)] sm:-right-4 sm:-top-24 sm:h-[32rem] sm:w-[26rem] sm:opacity-[0.16] dark:opacity-[0.075] dark:mix-blend-screen"
-              >
+              <div className="relative min-h-[230px] overflow-hidden bg-[#123d4b] sm:min-h-[280px]">
                 <Image
-                  src={homeAnimeResearcher}
-                  alt=""
+                  src={coastalLandscape}
+                  alt="阳光下的无人海湾，碧蓝海水轻轻漫过暖色沙滩"
                   fill
-                  sizes="(max-width: 640px) 160px, 416px"
-                  className="object-cover object-top saturate-[1.02]"
+                  priority
+                  sizes="(max-width: 1440px) 100vw, 1440px"
+                  className="object-cover object-[64%_54%] sm:object-[center_54%]"
                 />
+                <div aria-hidden="true" className="absolute inset-0 bg-[linear-gradient(90deg,rgba(5,35,49,0.90),rgba(5,35,49,0.60)_38%,rgba(5,35,49,0.12)_72%)]" />
+                <div className="relative flex min-h-[230px] flex-col justify-center px-6 py-8 text-white sm:min-h-[280px] sm:px-10">
+                  <p className="text-[10px] font-semibold tracking-[0.2em] text-white/85 sm:text-[11px]">TIDESCOPE / RESEARCH WORKSPACE</p>
+                  <p className="mt-4 text-[1.8rem] font-semibold leading-[1.3] tracking-tight sm:text-[2.6rem]">看清数据的潮汐，<br />找到研究的方向。</p>
+                  <p className="mt-4 max-w-md text-xs leading-6 text-white/90 sm:text-sm">让问题连接真实数据，让每一步分析有迹可循。</p>
+                  <div className="mt-5 flex flex-wrap gap-2 text-[10px] font-medium sm:text-[11px]">
+                    {["真实数据", "可追溯证据", "交互式看板"].map((label) => <span key={label} className="rounded-full border border-white/30 bg-[#103c4b]/60 px-3 py-1.5">{label}</span>)}
+                  </div>
+                </div>
               </div>
 
-              <div className="relative z-10">
+              <div className="relative z-10 px-4 py-5 sm:px-8 sm:py-6">
                 <div className="text-center">
-                  <h1 className="text-[1.9rem] font-bold tracking-[-0.045em] sm:text-[2.45rem]">今天想研究什么？</h1>
+                  <h1 className="text-xl font-bold tracking-tight sm:text-2xl">今天想研究什么？</h1>
                   <p className="mx-auto mt-1.5 max-w-2xl text-xs leading-5 text-muted-foreground sm:text-sm">
                     <span className="sm:hidden">说清标的、时间和目标。</span>
                     <span className="hidden sm:inline">描述标的、时间范围和希望得到的结论，系统会自动补全取数、证据与验证步骤。</span>
@@ -885,7 +891,7 @@ export default function HomePage() {
                       key={starter.label}
                       type="button"
                       onClick={() => handleStarterClick(starter)}
-                      className="min-h-11 shrink-0 snap-start border-b border-border px-1 py-2 text-[11px] text-muted-foreground transition-colors hover:border-primary hover:text-primary"
+                      className="min-h-11 shrink-0 snap-start rounded-xl border border-border/70 bg-background px-3 py-2 text-[11px] text-muted-foreground transition-colors hover:border-primary hover:bg-accent hover:text-primary"
                     >
                       {starter.label}
                     </button>
@@ -923,7 +929,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.45, delay: 0.18, ease: "easeOut" }}
-            className="mt-5 sm:mt-6"
+            className="mt-5 rounded-2xl border border-border/70 bg-card p-5 sm:mt-6 sm:p-6"
           >
             <div className="flex items-end justify-between gap-3">
               <div>

@@ -5,29 +5,26 @@ import { describe, expect, it } from 'vitest';
 
 const root = process.cwd();
 
-describe('QuantPilot brand icons', () => {
+describe('TideScope brand icons', () => {
   it('keeps the browser and application icons on the same SVG brand mark', async () => {
     const [publicMark, appIcon] = await Promise.all([
-      fs.readFile(path.join(root, 'public', 'quantpilot-mark.svg'), 'utf8'),
+      fs.readFile(path.join(root, 'public', 'tidescope-mark.svg'), 'utf8'),
       fs.readFile(path.join(root, 'src', 'app', 'icon.svg'), 'utf8'),
     ]);
 
-    for (const svg of [publicMark, appIcon]) {
-      expect(svg).toContain('#F47D63');
-      expect(svg).toContain('#C83F34');
-      expect(svg).toContain('<circle cx="244" cy="238" r="126"');
-      expect(svg).toContain('M166 279L219 226L267 259L342 184');
-    }
+    expect(appIcon.trim()).toBe(publicMark.trim());
+    expect(publicMark).toContain('#126F7D');
+    expect(publicMark).toContain('#F3D9A4');
+    expect(publicMark).toContain('<circle cx="43" cy="20" r="7"');
+    expect(publicMark).toContain('M10 34C20 22 29 22 39 34C44 40 49 40 54 35');
   });
 
   it.each([
-    ['public/favicon-16.png', 16],
-    ['public/favicon-32.png', 32],
-    ['public/favicon.png', 128],
-    ['public/apple-touch-icon.png', 180],
-    ['public/icons/quantpilot-192.png', 192],
-    ['public/icons/quantpilot-512.png', 512],
-    ['public/QuantPilot_Icon.png', 512],
+    ['public/tidescope-16.png', 16],
+    ['public/tidescope-32.png', 32],
+    ['public/tidescope-180.png', 180],
+    ['public/icons/tidescope-192.png', 192],
+    ['public/icons/tidescope-512.png', 512],
   ])('provides %s at %ipx', async (relativePath, size) => {
     const metadata = await sharp(path.join(root, relativePath)).metadata();
     expect(metadata.format).toBe('png');

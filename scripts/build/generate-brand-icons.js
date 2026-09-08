@@ -3,15 +3,13 @@ const path = require('path');
 const sharp = require('sharp');
 
 const root = process.cwd();
-const sourcePath = path.join(root, 'public', 'quantpilot-mark.svg');
+const sourcePath = path.join(root, 'public', 'tidescope-mark.svg');
 const targets = [
-  { size: 16, path: 'public/favicon-16.png' },
-  { size: 32, path: 'public/favicon-32.png' },
-  { size: 128, path: 'public/favicon.png' },
-  { size: 180, path: 'public/apple-touch-icon.png' },
-  { size: 192, path: 'public/icons/quantpilot-192.png' },
-  { size: 512, path: 'public/icons/quantpilot-512.png' },
-  { size: 512, path: 'public/QuantPilot_Icon.png' },
+  { size: 16, path: 'public/tidescope-16.png' },
+  { size: 32, path: 'public/tidescope-32.png' },
+  { size: 180, path: 'public/tidescope-180.png' },
+  { size: 192, path: 'public/icons/tidescope-192.png' },
+  { size: 512, path: 'public/icons/tidescope-512.png' },
 ];
 
 async function main() {
@@ -24,7 +22,7 @@ async function main() {
       .png({ compressionLevel: 9, adaptiveFiltering: true })
       .toFile(outputPath);
   }));
-  console.log(`[brand-icons] generated ${targets.length} assets from public/quantpilot-mark.svg`);
+  console.log(`[brand-icons] generated ${targets.length} assets from public/tidescope-mark.svg`);
 }
 
 main().catch((error) => {

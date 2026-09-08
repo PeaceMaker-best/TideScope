@@ -1,5 +1,7 @@
 "use client";
 
+import { BRAND_ENGLISH_NAME } from '@/lib/brand';
+
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { ArrowRight, BookOpen, CheckCircle2, ChevronLeft, ChevronRight, DatabaseZap, GitBranch, Search } from "lucide-react";
 import { Input } from "@/components/ui/input";
@@ -38,7 +40,7 @@ const FINANCIAL_WIKI_PAGE_TYPE_LABELS: Record<FinancialWikiPageType, string> = {
 };
 
 const FINANCIAL_WIKI_PURPOSE = {
-  title: "QuantPilot 金融知识库",
+  title: `${BRAND_ENGLISH_NAME} 金融知识库`,
   statement:
     "把策略平台反复用到的行情、因子、资金流、交易规则和风控知识整理成可追溯 Wiki，供策略目录、因子目录、Agent 生成和人工复核共同引用。",
   scope: [

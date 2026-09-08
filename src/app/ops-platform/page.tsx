@@ -3,10 +3,11 @@ import { getGenerationObservabilityDashboard } from '@/lib/quant/generation-obse
 import { getOpsPlatformDashboard } from '@/lib/ops/ops-platform';
 import OpsPlatformClient, { type OpsView } from './OpsPlatformClient';
 import type { Metadata } from 'next';
+import { BRAND_ENGLISH_NAME } from '@/lib/brand';
 
 export const metadata: Metadata = {
-  title: '运行治理中心 · QuantPilot',
-  description: '统一治理 QuantPilot 服务运行、工作空间交付、生成链路与运行日志。',
+  title: `运行治理中心 · ${BRAND_ENGLISH_NAME}`,
+  description: `统一治理 ${BRAND_ENGLISH_NAME} 服务运行、工作空间交付、生成链路与运行日志。`,
 };
 
 type Props = {

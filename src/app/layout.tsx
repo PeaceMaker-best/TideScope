@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/contexts/ThemeContext'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { AuthUserMenu } from '@/components/auth/AuthUserMenu'
 import { getProjectAuthConfig } from '@/lib/config/auth'
+import { BRAND_FULL_NAME } from '@/lib/brand'
 
 // Auth mode is a deployment-time setting. Keep the root tree request-bound so
 // one production image can safely switch between disabled and local auth.
@@ -13,19 +14,19 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: {
-    default: 'QuantPilot · 量化研究工作台',
+    default: `${BRAND_FULL_NAME} · 金融研究工作台`,
     template: '%s',
   },
   description: '从真实行情与证据出发，生成、评测和治理可验证的量化研究看板。',
   manifest: '/manifest.webmanifest',
   icons: {
     icon: [
-      { url: '/quantpilot-mark.svg?v=2', type: 'image/svg+xml' },
-      { url: '/favicon-32.png?v=2', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16.png?v=2', sizes: '16x16', type: 'image/png' },
+      { url: '/tidescope-mark.svg', type: 'image/svg+xml' },
+      { url: '/tidescope-32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/tidescope-16.png', sizes: '16x16', type: 'image/png' },
     ],
-    shortcut: '/favicon-32.png?v=2',
-    apple: [{ url: '/apple-touch-icon.png?v=2', sizes: '180x180', type: 'image/png' }],
+    shortcut: '/tidescope-32.png',
+    apple: [{ url: '/tidescope-180.png', sizes: '180x180', type: 'image/png' }],
   },
 }
 

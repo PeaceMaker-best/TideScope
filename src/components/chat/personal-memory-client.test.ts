@@ -8,6 +8,20 @@ import {
 } from './personal-memory-client';
 
 describe('personal memory browser client', () => {
+  it('uses the display brand for unavailable memory without changing the API request', async () => {
+    const fetcher = vi.fn().mockResolvedValue(new Response(JSON.stringify({ error: 'MEMORY_DISABLED' }), {
+      status: 503,
+    }));
+
+    await expect(savePersonalPreference({
+      projectId: 'project-a',
+      eventId: 'event-unavailable',
+      key: 'output.answer_style',
+      value: '先给结论',
+      scope: 'project',
+    }, fetcher)).rejects.toThrow('TideScope 当前未启用用户记忆。');
+  });
+
   it('builds an explicit bounded preference payload without identity or provider fields', () => {
     expect(buildPersonalPreferencePayload({
       eventId: 'event-a',

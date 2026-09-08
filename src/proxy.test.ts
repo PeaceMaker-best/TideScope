@@ -58,6 +58,13 @@ describe('project authentication proxy', () => {
 
   it.each([
     '/quantpilot-mark.svg',
+    '/tidescope-mark.svg',
+    '/tidescope-symbol.svg',
+    '/tidescope-16.png',
+    '/tidescope-32.png',
+    '/tidescope-180.png',
+    '/icons/tidescope-192.png',
+    '/icons/tidescope-512.png',
     '/favicon-16.png',
     '/favicon-32.png',
     '/apple-touch-icon.png',

@@ -1,5 +1,7 @@
 "use client";
 
+import { BRAND_ENGLISH_NAME } from '@/lib/brand';
+
 import type { CLIOption } from "./tabs/AIAgentsTab";
 
 interface InstallGuideModalProps {
@@ -18,7 +20,7 @@ function InstallGuideModal({ onClose, onRefreshStatus, onCopyToast }: InstallGui
   const steps = [
     { title: "安装项目依赖", command: "npm install" },
     { title: "配置 ModelPort 客户端凭据", command: "MODELPORT_API_KEY=..." },
-    { title: "重新启动 QuantPilot", command: "npm run dev" },
+    { title: `重新启动 ${BRAND_ENGLISH_NAME}`, command: "npm run dev" },
   ];
 
   return (

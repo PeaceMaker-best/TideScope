@@ -1,3 +1,4 @@
+import { BRAND_ENGLISH_NAME } from '@/lib/brand';
 import type {
   PersonalMemoryPreferenceKey,
   PersonalMemoryScope,
@@ -45,7 +46,7 @@ function apiMessage(payload: ApiEnvelope, fallback: string): string {
   if (payload.error === 'MEMORY_OPTED_OUT') {
     return '请先在“账号 → 用户记忆”中启用个性化。';
   }
-  if (payload.error === 'MEMORY_DISABLED') return 'QuantPilot 当前未启用用户记忆。';
+  if (payload.error === 'MEMORY_DISABLED') return `${BRAND_ENGLISH_NAME} 当前未启用用户记忆。`;
   return fallback;
 }
 
