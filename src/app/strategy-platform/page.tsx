@@ -1,0 +1,15 @@
+import type { Metadata } from 'next';
+import { BRAND_ENGLISH_NAME } from '@/lib/brand';
+import { getStrategyDashboardData } from '@/lib/quant/strategies';
+import StrategyPlatformClient from './StrategyPlatformClient';
+
+export const metadata: Metadata = {
+  title: `策略平台 · ${BRAND_ENGLISH_NAME}`,
+};
+
+export default async function StrategyPlatformPage() {
+  const data = await getStrategyDashboardData();
+  return <StrategyPlatformClient initialData={data} />;
+}
+
+export const dynamic = 'force-dynamic';
